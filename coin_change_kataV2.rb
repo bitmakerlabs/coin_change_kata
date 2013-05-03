@@ -8,7 +8,7 @@ require "test/unit"
 class Changer
 
   def self.make_change(cents)
-    
+
   end
 
 
@@ -17,27 +17,27 @@ end
 class ChangerTest < Test::Unit::TestCase
 
   def test_can_change_one_quarter
-    assert_equal Changer.make_change(25), [25]
+    assert_equal Changer.make_change(25), [0,0,0,1,0]
   end
 
   def test_can_change_multiple_quarters
-    assert_equal Changer.make_change(50), [25, 25]
+    assert_equal Changer.make_change(50), [0,0,0,2,0]
   end
 
   def test_can_change_one_dime
-    assert_equal Changer.make_change(10), [10]
+    assert_equal Changer.make_change(10), [0,0,1,0,0]
   end
 
   def test_can_change_multiple_dimes
-    assert_equal Changer.make_change(20), [10, 10]
+    assert_equal Changer.make_change(20), [0,0,2,0,0]
   end
 
   def test_can_change_small_complex_amounts
-    assert_equal Changer.make_change(7), [5, 1, 1]
+    assert_equal Changer.make_change(7), [2,1,0,0,0]
   end
 
   def test_can_change_large_complex_amounts
-    assert_equal Changer.make_change(68), [25, 25, 10, 5, 1, 1, 1]
+    assert_equal Changer.make_change(68), [3,1,1,2,0]
   end
 
 end
